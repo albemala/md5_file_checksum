@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 import 'package:md5_file_checksum/md5_file_checksum.dart';
+import 'package:md5_file_checksum_example/gen/assets.gen.dart';
+import 'package:md5_file_checksum_example/utils/file.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,34 +17,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String _fileChecksum = "---";
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    _init();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
+  Future<void> _init() async {
     try {
-      platformVersion =
-          await Md5FileChecksum.platformVersion ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
+      final tempFilePath = await copyAssetFileToTempDirectory(Assets.file1) ?? "";
+      final fileChecksum = await Md5FileChecksum.getFileChecksum(filePath: tempFilePath) ?? "---";
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
+      if (!mounted) return;
+      setState(() {
+        _fileChecksum = fileChecksum;
+      });
+    } catch (_) {}
   }
 
   @override
@@ -54,7 +45,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Text('File checksum: $_fileChecksum'),
         ),
       ),
     );
