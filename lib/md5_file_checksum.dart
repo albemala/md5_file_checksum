@@ -1,18 +1,23 @@
 import 'dart:async';
+import 'dart:io';
 
-import 'package:flutter/services.dart';
+import 'src/interface.dart';
 
 class Md5FileChecksum {
-  static const MethodChannel _channel = MethodChannel("md5_file_checksum");
+  static late final _api = Md5FileChecksumApi();
 
   /// Calculates the MD5 checksum of a file
+  ///
   /// - [filePath]: Absolute file path
-  static Future<String?> getFileChecksum({
+  ///
+  /// Throws a [FileSystemException] if the file does not exist.
+  /// Throws a [PlatformException] if some other error occurs.
+  static Future<String> getFileChecksum({
     required String filePath,
   }) async {
-    final args = {
-      "filePath": filePath,
-    };
-    return await _channel.invokeMethod<String>("getFileChecksum", args);
+    final fileExists = File(filePath).existsSync();
+    if (!fileExists) throw FileSystemException("File does not exist", filePath);
+
+    return await _api.getFileChecksum(filePath);
   }
 }

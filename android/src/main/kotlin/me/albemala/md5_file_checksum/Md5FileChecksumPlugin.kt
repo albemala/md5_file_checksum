@@ -1,35 +1,20 @@
 package me.albemala.md5_file_checksum
 
 import androidx.annotation.NonNull
-
+import dev.flutter.pigeon.Pigeon
 import io.flutter.embedding.engine.plugins.FlutterPlugin
-import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
-/** Md5FileChecksumPlugin */
-class Md5FileChecksumPlugin: FlutterPlugin, MethodCallHandler {
-  /// The MethodChannel that will the communication between Flutter and native Android
-  ///
-  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
-  /// when the Flutter Engine is detached from the Activity
-  private lateinit var channel : MethodChannel
-
+class Md5FileChecksumPlugin: FlutterPlugin, Pigeon.Md5FileChecksumApi {
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "md5_file_checksum")
-    channel.setMethodCallHandler(this)
-  }
-
-  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else {
-      result.notImplemented()
-    }
+    Pigeon.Md5FileChecksumApi.setup(flutterPluginBinding.binaryMessenger, this)
   }
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
+    Pigeon.Md5FileChecksumApi.setup(binding.binaryMessenger, null)
+  }
+
+  override fun getFileChecksum(filePath: String?): String {
+    return getMd5FileChecksum(filePath)
   }
 }
+

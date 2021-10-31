@@ -14,6 +14,7 @@ A Flutter plugin for getting the MD5 hash of a file.
   s.author           = { 'Alberto Malagoli' => 'albemala@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
+  s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.platform = :ios, '9.0'
 
