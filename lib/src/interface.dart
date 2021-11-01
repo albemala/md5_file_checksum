@@ -24,9 +24,9 @@ class Md5FileChecksumApi {
 
   Future<String> getFileChecksum(String arg_filePath) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.Md5FileChecksumApi.getFileChecksum', codec, binaryMessenger: _binaryMessenger);
-    final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object>[arg_filePath]) as Map<Object?, Object?>?;
+        'dev.flutter.pigeon.Md5FileChecksumApi.getFileChecksum', codec,
+        binaryMessenger: _binaryMessenger);
+    final Map<Object?, Object?>? replyMap = await channel.send(<Object>[arg_filePath]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
