@@ -2,7 +2,9 @@
 
 # md5_file_checksum
 
-A Flutter plugin for getting the MD5 hash of a file. Revamped version of [md5_plugin](https://pub.dev/packages/md5_plugin).
+Flutter plugin to calculate a file checksum as MD5 hash, using a platform native implementation. 
+
+Revamped version of [md5_plugin](https://pub.dev/packages/md5_plugin).
 
 ## Usage
 
