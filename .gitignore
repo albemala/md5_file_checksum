@@ -5,4 +5,5 @@
 .dart_tool/
 .pub/
 build/
+example/build/
 .packages

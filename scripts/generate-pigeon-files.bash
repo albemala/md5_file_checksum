@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 # Used to generate platform interfaces
-# Run from inside scripts/ folder
-
-cd .. || exit
+# How to use: bash scripts/generate-pigeon-files.bash
 
 flutter pub run pigeon \
   --input pigeon/interface.dart \
