@@ -13,7 +13,10 @@ public class SwiftMd5FileChecksumPlugin: NSObject, FlutterPlugin, Md5FileChecksu
         Md5FileChecksumApiSetup(registrar.messenger(), nil);
     }
 
-    public func getFileChecksumFilePath(_ filePath: String, completion: (String?, FlutterError?) -> ()) {
+    public func getFileChecksumFilePath(
+        _ filePath: String,
+        completion: @escaping (String?, FlutterError?) -> Void
+    ) {
         let fileUrl = URL(fileURLWithPath: filePath)
         do {
             let checksum = try getMd5FileChecksum(url: fileUrl)
