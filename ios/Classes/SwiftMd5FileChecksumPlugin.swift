@@ -2,10 +2,15 @@ import Flutter
 import UIKit
 
 public class SwiftMd5FileChecksumPlugin: NSObject, FlutterPlugin, Md5FileChecksumApi {
+
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let messenger = registrar.messenger()
-        let api = SwiftMd5FileChecksumPlugin()
-        Md5FileChecksumApiSetup(messenger, api);
+        let plugin = SwiftMd5FileChecksumPlugin()
+        registrar.publish(plugin)
+        Md5FileChecksumApiSetup(registrar.messenger(), plugin);
+    }
+
+    public func detachFromEngine(for registrar: FlutterPluginRegistrar) {
+        Md5FileChecksumApiSetup(registrar.messenger(), nil);
     }
 
     public func getFileChecksumFilePath(
