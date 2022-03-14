@@ -10,18 +10,19 @@ public class SwiftMd5FileChecksumPlugin: NSObject, FlutterPlugin, Md5FileChecksu
 
     public func getFileChecksumFilePath(
         _ filePath: String,
-        error: AutoreleasingUnsafeMutablePointer<FlutterError?>
-    ) -> String? {
+        completion: @escaping (String?, FlutterError?) -> Void
+    ) {
         let fileUrl = URL(fileURLWithPath: filePath)
         do {
-            return try getMd5FileChecksum(url: fileUrl)
+            let checksum = try getMd5FileChecksum(url: fileUrl)
+            completion(checksum, nil)
         } catch (let exception) {
-            error.pointee = FlutterError(
+            let error = FlutterError(
                 code: "PLATFORM_EXCEPTION",
                 message: exception.localizedDescription,
                 details: nil
             )
-            return ""
+            completion("", error)
         }
     }
 }
