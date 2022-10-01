@@ -27,8 +27,11 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _init() async {
     try {
-      final tempFilePath = await copyAssetFileToTempDirectory(Assets.file1) ?? "";
-      final fileChecksum = await Md5FileChecksum.getFileChecksum(filePath: tempFilePath) ?? "---";
+      final tempFilePath =
+          await copyAssetFileToTempDirectory(Assets.file1) ?? "";
+      final fileChecksum =
+          await Md5FileChecksum.getFileChecksum(filePath: tempFilePath) ??
+              "---";
 
       if (!mounted) return;
       setState(() {

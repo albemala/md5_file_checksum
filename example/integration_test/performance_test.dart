@@ -9,7 +9,8 @@ import 'package:md5_file_checksum_example/utils/file.dart';
 
 void main() {
   testWidgets("performance test", (tester) async {
-    final tempFile1Path = await copyAssetFileToTempDirectory(Assets.file1) ?? "";
+    final tempFile1Path =
+        await copyAssetFileToTempDirectory(Assets.file1) ?? "";
     _runAndMeasure('File 1 native', () async {
       await Md5FileChecksum.getFileChecksum(filePath: tempFile1Path);
     });
@@ -17,7 +18,8 @@ void main() {
       await _getFileChecksumUsingDart(filePath: tempFile1Path);
     });
 
-    final tempFile2Path = await copyAssetFileToTempDirectory(Assets.file2) ?? "";
+    final tempFile2Path =
+        await copyAssetFileToTempDirectory(Assets.file2) ?? "";
     _runAndMeasure('File 2 native', () async {
       await Md5FileChecksum.getFileChecksum(filePath: tempFile2Path);
     });
@@ -25,7 +27,8 @@ void main() {
       await _getFileChecksumUsingDart(filePath: tempFile2Path);
     });
 
-    final tempFile3Path = await copyAssetFileToTempDirectory(Assets.file3) ?? "";
+    final tempFile3Path =
+        await copyAssetFileToTempDirectory(Assets.file3) ?? "";
     _runAndMeasure('File 3 native', () async {
       await Md5FileChecksum.getFileChecksum(filePath: tempFile3Path);
     });
@@ -35,7 +38,8 @@ void main() {
   });
 }
 
-Future<void> _runAndMeasure(String description, Future<void> Function() function) async {
+Future<void> _runAndMeasure(
+    String description, Future<void> Function() function) async {
   final stopwatch = Stopwatch()..start();
   await function();
   stopwatch.stop();

@@ -9,7 +9,8 @@ Future<String?> copyAssetFileToTempDirectory(String assetFilePath) async {
     final tempDirectory = await getTemporaryDirectory();
     final tempFilePath = join(tempDirectory.path, basename(assetFilePath));
     final assetData = await rootBundle.load(assetFilePath);
-    final assetBytes = assetData.buffer.asUint8List(assetData.offsetInBytes, assetData.lengthInBytes);
+    final assetBytes = assetData.buffer
+        .asUint8List(assetData.offsetInBytes, assetData.lengthInBytes);
     await File(tempFilePath).writeAsBytes(assetBytes, flush: true);
     return tempFilePath;
   } catch (_) {
