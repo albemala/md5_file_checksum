@@ -1,3 +1,7 @@
+## 1.0.5
+
+- Updated Readme
+
 ## 1.0.4
 
 - Updated Readme

@@ -42,3 +42,15 @@ try {
 ## Result
 
 ![Simulator Screen Shot - iPhone 13 - 2021-10-31 at 15 22 06](https://user-images.githubusercontent.com/2332860/139654021-7187e07e-6c1d-45a4-8c64-5197e5183aa5.png)
+
+## Support this project
+
+[Buy Me A Coffee](https://www.buymeacoffee.com/albemala)
+
+## Other projects
+
+[All my projects](https://projects.albemala.me/)
+
+## Credits
+
+Created by [@albemala](https://github.com/albemala) ([Twitter](https://twitter.com/albemala))
