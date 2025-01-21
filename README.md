@@ -45,7 +45,8 @@ try {
 
 ## Support this project
 
-[Buy Me A Coffee](https://www.buymeacoffee.com/albemala)
+- [GitHub Sponsor](https://github.com/sponsors/albemala)
+- [Buy Me A Coffee](https://www.buymeacoffee.com/albemala)
 
 ## Other projects
 
