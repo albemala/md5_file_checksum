@@ -1,3 +1,7 @@
+## 1.0.6
+
+- Updated funding information
+
 ## 1.0.5
 
 - Updated Readme
