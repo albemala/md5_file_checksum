@@ -2,5 +2,6 @@
 
 # How to use: bash scripts/publish.bash
 
-flutter format .
+flutter pub get
+dart format .
 dart pub publish
