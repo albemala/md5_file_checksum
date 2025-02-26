@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'md5_file_checksum'
-  s.version = '1.0.3'
+  s.version = '1.0.7'
   s.summary          = 'A Flutter plugin for getting the MD5 hash of a file.'
   s.description      = <<-DESC
 A Flutter plugin for getting the MD5 hash of a file.
