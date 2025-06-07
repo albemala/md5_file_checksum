@@ -1,3 +1,11 @@
+## 1.1.0
+
+- Made MD5 hash calculation happen in the background thread to avoid blocking the main thread.
+
+## 1.0.7
+
+- Android build settings update.
+
 ## 1.0.6
 
 - Updated funding information

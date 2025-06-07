@@ -3,7 +3,7 @@
 # Used to generate platform interfaces
 # How to use: bash scripts/generate-pigeon-files.bash
 
-flutter pub run pigeon \
+dart run pigeon \
   --input pigeon/interface.dart \
   --dart_out lib/src/interface.dart \
   --objc_header_out ios/Classes/pigeon.h \
