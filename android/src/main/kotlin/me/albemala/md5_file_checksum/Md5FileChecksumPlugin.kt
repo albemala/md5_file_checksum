@@ -3,6 +3,7 @@ package me.albemala.md5_file_checksum
 import androidx.annotation.NonNull
 import dev.flutter.pigeon.Pigeon
 import io.flutter.embedding.engine.plugins.FlutterPlugin
+import me.albemala.md5_file_checksum.getMd5FileChecksum
 
 class Md5FileChecksumPlugin: FlutterPlugin, Pigeon.Md5FileChecksumApi {
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
@@ -17,4 +18,3 @@ class Md5FileChecksumPlugin: FlutterPlugin, Pigeon.Md5FileChecksumApi {
     return getMd5FileChecksum(filePath)
   }
 }
-
