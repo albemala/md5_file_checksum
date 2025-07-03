@@ -10,3 +10,4 @@ dart run pigeon \
   --objc_source_out ios/Classes/pigeon.m \
   --java_out ./android/src/main/java/dev/flutter/pigeon/Pigeon.java \
   --java_package "dev.flutter.pigeon"
+dart format lib/
