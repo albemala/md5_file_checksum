@@ -1,5 +1,6 @@
 import CommonCrypto
 import CryptoKit
+import Foundation
 
 // Reference: https://stackoverflow.com/questions/42935148/swift-calculate-md5-checksum-for-large-files
 

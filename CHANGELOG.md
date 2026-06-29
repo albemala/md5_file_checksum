@@ -1,3 +1,8 @@
+## 1.2.0
+
+- Added Swift Package Manager support for iOS. Minimum iOS deployment target is now 12.0.
+- Expanded integration test coverage (empty path, directory path, empty file, large multi-buffer file, determinism) and fixed a stale expected hash for `file3`.
+
 ## 1.1.0
 
 - Made MD5 hash calculation happen in the background thread to avoid blocking the main thread.
