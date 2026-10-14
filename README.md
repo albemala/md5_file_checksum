@@ -50,7 +50,7 @@ try {
 
 ## Other projects
 
-[All my projects](https://projects.albemala.me/)
+[All my projects](https://albemala.me/apps/)
 
 ## Credits
 
