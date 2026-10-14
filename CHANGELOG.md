@@ -1,3 +1,7 @@
+## 1.2.1
+
+- Updated project links in README (portfolio v5 migration)
+
 ## 1.2.0
 
 - Added Swift Package Manager support for iOS. Minimum iOS deployment target is now 12.0.
